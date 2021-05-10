@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package gateway.service;
+
+import "google/protobuf/empty.proto";
+
+message User {
+  string id = 1;
+}
+
+service Users {
+  rpc GetUser(google.protobuf.Empty) returns (User) {};
+}
