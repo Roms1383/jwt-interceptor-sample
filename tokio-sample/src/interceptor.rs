@@ -108,6 +108,11 @@ async fn get_certificate(
         let guard = lock.read().await;
         (*guard).clone()
     };
+    println!(
+        "GOT CERTIFICATES ({}) at {}",
+        uid.to_string().blue(),
+        Utc::now().to_rfc3339()
+    );
     if cert.expires <= Utc::now() {
         cert = {
             println!(
